@@ -37,6 +37,7 @@ def loader_from_list(
         center_crop=False,
         return_paths=False,
         drop_last=True):
+    print('Creating loader...')
     transform_list = [transforms.ToTensor(),
                       transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
     if center_crop:
@@ -59,6 +60,7 @@ def loader_from_list(
                         shuffle=shuffle,
                         drop_last=drop_last,
                         num_workers=num_workers)
+    print('Created loader!')
     return loader
 
 

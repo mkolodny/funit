@@ -77,8 +77,10 @@ iterations = trainer.resume(checkpoint_directory,
                             multigpus=opts.multigpus) if opts.resume else 0
 
 while True:
+    print('Starting training...')
     for it, (co_data, cl_data) in enumerate(
             zip(train_content_loader, train_class_loader)):
+        print('Running iteration...')
         with Timer("Elapsed time in update: %f"):
             d_acc = trainer.dis_update(co_data, cl_data, config)
             g_acc = trainer.gen_update(co_data, cl_data, config,
