@@ -48,6 +48,8 @@ class ImageLabelFilelist(data.Dataset):
 
     def __getitem__(self, index):
         im_path, label = self.imgs[index]
+        print(f'im_path: {im_path}')
+        print(f'label: {label}')
         path = os.path.join(self.root, im_path)
         img = self.loader(path)
         if self.transform is not None:
